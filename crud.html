@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+    <title>Starter Template for Bootstrap</title>
+    <style type="text/css">
+        nav.navbar.navbar-inverse.navbar-fixed-top {
+    position: relative;
+}
+
+    </style>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+  
+  </head>
+
+  <body ng-app="myApp">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">Edit</a></li>
+            <li><a href="#contact">Add</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container" ng-controller="mainController">
+    <!-- <button class="btn btn-info" id="std">Show Students</button> -->
+        <table class="table table-striped">
+            <tbody id="studentsInfo">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Tele</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip</th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="std in students">
+                	<td>{{std.fname}}</td>
+                	<td>{{std.lname}}</td>
+                	<td>{{std.tel}}</td>
+                	<td>{{std.address}}</td>
+                	<td>{{std.city}}</td>
+                	<td>{{std.state}}</td>
+                	<td>{{std.zip}}</td>
+                	<td><button class="btn btn-info" ng-click="editStudent(std,$index)">Edit</button></td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div><!-- /.container -->
+    <script type="text/javascript" src="angular.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="editController.js"></script>
+<script type="text/javascript" src="updateController.js"></script>
+<script type="text/javascript" src="deleteController.js"></script>
+
+  </body>
