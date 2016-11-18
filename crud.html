@@ -64,6 +64,36 @@
             </tbody>
 
         </table>
+        
+        
+        <table ng-show="selectedperson" class="table table-striped">
+        	<tbody>
+        		<tr>
+	        		<td> First Name</td> <td> <input type="text" ng-model="fname"></td>        		
+        		</tr>
+        		<tr>
+	        		<td> Last Name</td> <td> <input type="text" ng-model="lname"></td>        		
+        		</tr>
+        		<tr>
+	        		<td> Telephone</td> <td> <input type="text" ng-model="tel"></td>        		
+        		</tr>
+        		<tr>
+	        		<td>Address</td> <td> <input type="text" ng-model="address"></td>        		
+        		</tr>
+        		<tr>
+	        		<td>city</td> <td> <input type="text" ng-model="city"></td>        		
+        		</tr>
+        		<tr>
+	        		<td>state</td> <td> <input type="text" ng-model="state"></td>        		
+        		</tr>
+        		<tr>
+	        		<td>zip</td> <td> <input type="text" ng-model="zip"></td>        		
+        		</tr>
+        		<tr><input type = "button" value="Update" ng-click="updateStudent()"/></tr>
+        	</tbody>
+        
+        
+        </table>
     </div><!-- /.container -->
     <script type="text/javascript" src="angular.js"></script>
 <script type="text/javascript" src="app.js"></script>
