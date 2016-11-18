@@ -1,6 +1,9 @@
 var myApp=angular.module('myApp', [])
 myApp.controller("mainController",function ($scope){
-$scope.students=[
+
+	$scope.index
+	
+	$scope.students=[
     {
         "fname": "Constance",
         "lname": "Barden",
@@ -93,7 +96,33 @@ $scope.students=[
     }
 ]
 $scope.editStudent=function (std,index){
-console.log(std)
-console.log(index)
+    $scope.index = index
+	$scope.selectedperson = $scope.students[index]
+	$scope.fname = $scope.selectedperson.fname
+	$scope.lname = $scope.selectedperson.lname
+	$scope.tel = $scope.selectedperson.tel
+	$scope.address = $scope.selectedperson.address
+	$scope.city = $scope.selectedperson.city
+	$scope.state= $scope.selectedperson.state
+	$scope.zip = $scope.selectedperson.zip
+	
+	console.log(std)
+	console.log(index)
+}
+
+
+$scope.updateStudent = function (){
+	
+	$scope.newstudent={}
+	$scope.newstudent.fname = $scope.fname
+	$scope.newstudent.lname = $scope.lname
+	$scope.newstudent.tel = $scope.tel;
+	$scope.newstudent.address = $scope.address;
+	$scope.newstudent.city = $scope.city;
+	$scope.newstudent.state = $scope.state;
+	$scope.newstudent.zip = $scope.zip;
+	
+	$scope.students[$scope.index] = $scope.newstudent
+	
 }
 })
