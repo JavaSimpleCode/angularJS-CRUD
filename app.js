@@ -136,7 +136,6 @@ $scope.updateStudent = function (){
 	
 }
 $scope.addStudent=function(){
-	resetModelValues()
 	$scope.showAddScreen = true;
 	$scope.showFullList = false;
 	$scope.showEdit = false;
