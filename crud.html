@@ -31,14 +31,59 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#about">Edit</a></li>
-            <li><a href="#contact">Add</a></li>
+            <li><a href="#contact">Add </a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
     <div class="container" ng-controller="mainController">
-    <!-- <button class="btn btn-info" id="std">Show Students</button> -->
+
+		<div ng-show="showAddScreen">
+		<table class="table table-striped">
+        	<tbody id="addStudentsInfo">
+	                
+	                	<tr>
+	                		<td>First Name:</td> <td> <input type="text" ng-model="nFname"/></td>
+	                		</tr>
+	                		
+	                	<tr>
+	                		<td>Last Name:</td> <td> <input type="text" ng-model="nLname"/></td>
+	                	</tr>
+	                	
+	                	<tr>
+	                		<td>Telephone:</td> <td> <input type="text" ng-model="nTelephone"/></td>
+	                	</tr>
+	                	
+	                	<tr>
+	                		<td>Address:</td> <td> <input type="text" ng-model="nAddress"/></td>
+	                	</tr>
+	                	
+	                	<tr>
+	                		<td>City :</td> <td> <input type="text" ng-model="nCity"/></td>
+	                	</tr>
+	                	
+	                	<tr>
+	                		<td>State:</td> <td> <input type="text" ng-model="nState"/></td>
+	                	</tr>
+	                	
+	                	<tr>
+	                		<td>Zipcode:</td> <td> <input type="text" ng-model="nZipCode"/></td>
+	                	</tr>
+	                	
+	                	
+	                	<tr>
+	                		<td><input type="button" class="btn btn-info" value="Add" ng-click="addNewStudentRecord()"/></td>
+	                		<td><input type="button" class="btn btn-info" value="Cancel" ng-click="cancelAddingNewRecord()"/></td>
+	                	</tr>
+	                	
+	                	
+	            </tbody>
+		
+		</table>
+		
+		</div>    
+        <div ng-show="showFullList">
         <table class="table table-striped">
             <tbody id="studentsInfo">
                 <tr>
@@ -49,7 +94,7 @@
                     <th>City</th>
                     <th>State</th>
                     <th>Zip</th>
-                    <th></th>
+                    <th><input type="button" class="btn btn-info" value="Add New Record" ng-click="addStudent()"/></th>
                 </tr>
                 <tr ng-repeat="std in students">
                 	<td>{{std.fname}}</td>
@@ -60,13 +105,15 @@
                 	<td>{{std.state}}</td>
                 	<td>{{std.zip}}</td>
                 	<td><button class="btn btn-info" ng-click="editStudent(std,$index)">Edit</button></td>
+                	<td><button class="btn btn-danger" ng-click="deleteStudent($index)"/>Delete</td>
                 </tr>
             </tbody>
 
         </table>
+        </div>
         
-        
-        <table ng-show="selectedperson" class="table table-striped">
+        <div ng-show="showEdit">
+        <table  class="table table-striped">
         	<tbody>
         		<tr>
 	        		<td> First Name</td> <td> <input type="text" ng-model="fname"></td>        		
@@ -89,11 +136,12 @@
         		<tr>
 	        		<td>zip</td> <td> <input type="text" ng-model="zip"></td>        		
         		</tr>
-        		<tr><input type = "button" value="Update" ng-click="updateStudent()"/></tr>
+        		<tr><input type = "button" class = "btn btn-info" value="Update" ng-click="updateStudent()"/></tr>
+        		<tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tr>
+        		<tr><input type = "button" class = "btn btn-info" value="cancel" ng-click="updateStudent()"/></tr>
         	</tbody>
-        
-        
         </table>
+        </div>
     </div><!-- /.container -->
     <script type="text/javascript" src="angular.js"></script>
 <script type="text/javascript" src="app.js"></script>
